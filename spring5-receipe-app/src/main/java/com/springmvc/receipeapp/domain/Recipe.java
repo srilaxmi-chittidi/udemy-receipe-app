@@ -4,9 +4,16 @@ import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -23,12 +30,22 @@ public class Recipe {
 	private String source;
 	private String url;
 	private String directions;
+	@Lob
 	private Byte[] image;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Notes notes;
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "recipe")
 	private Set<Ingredient> ingredients;
+	
+	@Enumerated(value = EnumType.STRING)
+	private Difficulty difficulty;
+	
+	@ManyToMany
+	@JoinTable(name = "recipes_categories",
+			joinColumns = @JoinColumn(name = "recipe_id"),
+			inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<Category> categories;
 	
 	public Long getId() {
 		return id;
@@ -89,6 +106,24 @@ public class Recipe {
 	}
 	public void setNotes(Notes notes) {
 		this.notes = notes;
+	}
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+	public Set<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
 	}
 	
 

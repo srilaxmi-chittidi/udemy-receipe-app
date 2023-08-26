@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.springmvc.receipeapp.Spring5ReceipeAppApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.105 s - in com.springmvc.receipeapp.Spring5ReceipeAppApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.384 s - in com.springmvc.receipeapp.Spring5ReceipeAppApplicationTests

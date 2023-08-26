@@ -1,1 +1,7 @@
 com\springmvc\receipeapp\Spring5ReceipeAppApplication.class
+com\springmvc\receipeapp\domain\UnitOfMeasure.class
+com\springmvc\receipeapp\domain\Ingredient.class
+com\springmvc\receipeapp\domain\Notes.class
+com\springmvc\receipeapp\domain\Difficulty.class
+com\springmvc\receipeapp\domain\Recipe.class
+com\springmvc\receipeapp\domain\Category.class
